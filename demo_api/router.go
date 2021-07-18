@@ -4,14 +4,13 @@ import (
 	"api/controller"
 	"fmt"
 
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
 )
 
 func NewServer(port int) {
-	r := gin.New() // New Engine
-	r.Use(gin.Recovery())
+	r := echo.New() // New Engine
 	r.GET("/", controller.Hello)
 	r.GET("/users", controller.GetUsers)
-	r.Run( fmt.Sprintf(":%v", port))
+	r.Start( fmt.Sprintf(":%v", port))
 }
 

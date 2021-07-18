@@ -4,14 +4,14 @@ import (
 	"api/service"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
 )
 
-func GetUsers(c *gin.Context) {
+func GetUsers(c echo.Context) error {
 	us := service.UserService{}
-	c.JSON(http.StatusOK, us.GetUsers())
+	return c.JSON(http.StatusOK, us.GetUsers())
 }
 
-func Hello(c *gin.Context) {
-	c.JSON(http.StatusOK, "Hello world")
+func Hello(c echo.Context) error {
+	return c.JSON(http.StatusOK, "Hello world")
 }
