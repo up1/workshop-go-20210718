@@ -3,17 +3,23 @@ package main
 import "fmt"
 
 func main() {
-    var result string
+	var result string
 	result = hello("somkiat")
 	fmt.Println(result)
 
-	row, err := saveData("error");
-	fmt.Println(row, err)
+	row, err := saveData("error")
 	if err != nil {
+		fmt.Println(row, err)
 	}
 }
 
-func saveData(input string) (int, error){
+func doSth(input int) func(x int) int {
+	return func(x int) int {
+		return input * x
+	}
+}
+
+func saveData(input string) (int, error) {
 	if input == "error" {
 		return -1, fmt.Errorf("Error with %s", input)
 	}
@@ -23,4 +29,3 @@ func saveData(input string) (int, error){
 func hello(name string) string {
 	return fmt.Sprintf("Hello %s", name)
 }
-
