@@ -11,3 +11,9 @@ func TestSuccessCase(t *testing.T) {
 		t.Errorf("Expect 100 but found %v", result)
 	}
 }
+
+func BenchmarkRandInt(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        db.SaveData("")
+    }
+}
