@@ -1,25 +1,17 @@
 package main
 
-import "fmt"
-
-type department struct {
-	depName string
-}
-type person struct {
-	id int
-	name string
-	department // Embedded struct
-}
-
-func (p person) doSth() {
-	p.name = "Update name"
-	fmt.Println("Called doSth() with name=", p.name)
-}
+import (
+	"day01"
+	"fmt"
+)
 
 func main() {
-    d := department{"demo"}
-	p := person{id: 1, name: "somkiat", department: d}
-	p.doSth()
-	fmt.Println(p.depName)
-	fmt.Println(p.department.depName)
+	d := day01.Department{"demo"}
+	p := day01.Person{
+		Id:         1,
+		Name:       "somkiat",
+		Department: d}
+	p.DoSth()
+	fmt.Println(p.DepName)
+	fmt.Println(p.Department.DepName)
 }
