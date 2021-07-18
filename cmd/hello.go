@@ -6,6 +6,8 @@ import (
 	"fmt"
 )
 
+type Day int // Alias type
+
 func main() {
 	var result string
 	result = day01.Hello("somkiat")
