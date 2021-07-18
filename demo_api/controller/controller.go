@@ -1,33 +1,15 @@
 package controller
 
 import (
+	"api/service"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-type User struct {
-	Firstname string `json:"firstname"`
-	Lastname  string `json:"lastname"`
-	Title     string `json:"title"`
-}
-
-type Users []User
-
 func GetUsers(c *gin.Context) {
-	u := Users{
-		User{
-			Firstname: "f1",
-			Lastname:  "l1",
-			Title:     "Mr.",
-		},
-		User{
-			Firstname: "f2",
-			Lastname:  "l2",
-			Title:     "Miss.",
-		},
-	}
-	c.JSON(http.StatusOK, u)
+	us := service.UserService{}
+	c.JSON(http.StatusOK, us.GetUsers())
 }
 
 func Hello(c *gin.Context) {
