@@ -9,6 +9,10 @@ import (
 	"strings"
 )
 
+
+
+
+
 type User struct {
 	Id int	`json:"id"`  //json literal
 	Name string `json:"name"`
